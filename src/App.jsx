@@ -1,26 +1,18 @@
-import "./App.css";
-import Square from "./SquareComponent";
+import { Route, Routes } from "react-router";
+import DashboardLayout from "./DashboardLayout";
+import "./layout.css";
+import Products from "./Pages/Products";
+import Cart from "./Pages/Cart";
+import Settings from "./Pages/Settings";
 
 export default function App() {
-  const data = [
-    {
-      title: "Square 1",
-      value: 10,
-    },
-    {
-      title: "Square 2",
-      value: 20,
-    },
-    {
-      title: "Square 3",
-      value: 30,
-    },
-  ];
   return (
-    <section>
-      {data.map((d, index) => (
-        <Square key={index} title={d.title} value={d.value} />
-      ))}
-    </section>
+    <DashboardLayout>
+      <Routes>
+        <Route path="/" Component={Products} />
+        <Route path="/cart" Component={Cart} />
+        <Route path="/settings" Component={Settings} />
+      </Routes>
+    </DashboardLayout>
   );
 }

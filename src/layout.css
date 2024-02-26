@@ -1,0 +1,46 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-layout-container {
+  width: 100%;
+  height: 100vh;
+  background-color: lightpink;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background: lightgoldenrodyellow;
+  border: 2px solid lightcoral;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.content-area-container {
+  width: 100%;
+  display: flex;
+  column-gap: 10px;
+
+  > .sidebar {
+    width: 15%;
+    height: calc(100vh - 110px);
+    background: lightgreen;
+    border: 2px solid lightcoral;
+    border-radius: 20px;
+  }
+
+  > .content-container {
+    width: calc(100% - 15%);
+    height: calc(100vh - 110px);
+    background-color: lightskyblue;
+    border: 2px solid lightcoral;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
