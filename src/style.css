@@ -21,9 +21,9 @@
   }
   > .card-body {
     > .details {
-      height: 100px;
+      white-space: nowrap;
       overflow: hidden;
-      text-wrap: no-wrap;
+      text-overflow: ellipsis;
     }
   }
 }
