@@ -1,0 +1,29 @@
+/* NAVBAR */
+.active {
+  border: 2px solid var(--bs-blue);
+  border-radius: 5px;
+}
+
+/* BILL BOARD */
+.billboard-container {
+  width: 100%;
+
+  > img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* BLOG CARD */
+.blog-card {
+  > img {
+    height: 250px;
+  }
+  > .card-body {
+    > .details {
+      height: 100px;
+      overflow: hidden;
+      text-wrap: no-wrap;
+    }
+  }
+}
