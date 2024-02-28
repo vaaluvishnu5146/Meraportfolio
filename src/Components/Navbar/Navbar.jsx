@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function Navbar() {
   const navigator = useNavigate();
+  const { loggedIn } = useContext(AuthContext);
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container-fluid">
@@ -65,22 +68,24 @@ export default function Navbar() {
                   </li>
                 </ul>
               </div>
-              <div className="col-4 d-grid gap-2 d-md-block">
-                <button
-                  type="button"
-                  className="btn btn-outline-primary mx-2"
-                  onClick={() => navigator("/login")}
-                >
-                  Login
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => navigator("/signup")}
-                >
-                  Signup
-                </button>
-              </div>
+              {!loggedIn && (
+                <div className="col-4 d-grid gap-2 d-md-block">
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary mx-2"
+                    onClick={() => navigator("/login")}
+                  >
+                    Login
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => navigator("/signup")}
+                  >
+                    Signup
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { BlogContext } from "../../Context/BlogContext";
+
 export default function BlogDetails() {
-  return <div>BlogDetails</div>;
+  const { blogs = [] } = useContext(BlogContext);
+  return <div>BlogDetails {blogs.length}</div>;
 }
