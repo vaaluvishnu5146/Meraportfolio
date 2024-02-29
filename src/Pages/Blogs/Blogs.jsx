@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Billboard from "../../Components/Billboard/Billboard";
 import BlogCard from "../../Components/BlogCard/BlogCard";

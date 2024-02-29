@@ -16,7 +16,7 @@ export default function Navbar() {
           </div>
           <div className="col-6">
             <div className="row">
-              <div className="col-8">
+              <div className="col-9">
                 <ul className="nav">
                   <li className="nav-item">
                     <NavLink
@@ -66,10 +66,21 @@ export default function Navbar() {
                       Backend Technologies
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/cart"
+                      className={({ isActive, isPending }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      aria-current="page"
+                    >
+                      Cart
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
               {!loggedIn && (
-                <div className="col-4 d-grid gap-2 d-md-block">
+                <div className="col-3 d-grid gap-2 d-md-block">
                   <button
                     type="button"
                     className="btn btn-outline-primary mx-2"
