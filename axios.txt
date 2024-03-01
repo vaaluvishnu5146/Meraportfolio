@@ -1,0 +1,45 @@
+fetch("http://localhost:5173/data.json", { "headers": {}, "method": "POST", body: JSON.stringify({}) })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Fetch", result);
+        setBlogs(result.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    Axios.get("http://localhost:5000/api/hospital/all")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    Axios.post("http://localhost:5000/api/hospital/create", {
+      name: "Apollo",
+      type: "multi",
+      addressDetails: {
+        addressLine1: "Test address 1",
+        addressLine2: "Test address 2",
+        town: "purasevakkam",
+        city: "Chennai",
+        state: "Tamilnadu",
+        pincode: "600028",
+      },
+      servicesProvided: [
+        "Alergist",
+        "Cardiology",
+        "ENT",
+        "Dentist",
+        "Dermatology",
+      ],
+      isKYCVerified: false,
+      isActive: false,
+      ratings: 1,
+    }).then((response) => console.log(response));
+    
+    Axios.get("");
+    Axios.post("", { type: "Creation" });
+    Axios.patch("", { type: "Updating" });
+    Axios.delete("");
