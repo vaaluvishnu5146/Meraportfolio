@@ -1,16 +1,30 @@
-import { useContext } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Billboard from "../../Components/Billboard/Billboard";
 import BlogCard from "../../Components/BlogCard/BlogCard";
-import { BlogContext } from "../../Context/BlogContext";
+import { storeBlogs } from "../../Redux/Reducers/BlogReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Blogs() {
+  const dispatcher = useDispatch();
   const { category } = useParams();
-  const { blogs = [] } = useContext(BlogContext);
+  const { blogs = {} } = useSelector((state) => state);
+  const { data = [] } = blogs;
   const filteredBlogs =
     category === "all"
-      ? blogs
-      : blogs.filter((blog) => blog.tags.includes(category));
+      ? data
+      : data.filter((blog) => blog.tags.includes(category));
+
+  useEffect(() => {
+    fetch("http://localhost:5173/data.json")
+      .then((response) => response.json())
+      .then((result) => {
+        dispatcher(storeBlogs(result.products));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="container">

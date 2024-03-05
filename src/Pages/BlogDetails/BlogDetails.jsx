@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import { BlogContext } from "../../Context/BlogContext";
+import { useSelector } from "react-redux";
 
 export default function BlogDetails() {
-  const { blogs = [] } = useContext(BlogContext);
-  return <div>BlogDetails {blogs.length}</div>;
+  const { blogs = {} } = useSelector((state) => state);
+  return <div>BlogDetails {blogs.data.length}</div>;
 }

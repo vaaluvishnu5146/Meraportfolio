@@ -6,7 +6,6 @@ import Signup from "./Pages/Signup/Signup";
 import Blogs from "./Pages/Blogs/Blogs";
 import BlogDetails from "./Pages/BlogDetails/BlogDetails";
 import "./style.css";
-import BlogContextProvider from "./Context/BlogContext";
 import { AuthContext } from "./Context/AuthContext";
 import Cart from "./Pages/Cart/Cart";
 
@@ -23,13 +22,11 @@ export default function App() {
         </Routes>
       )}
       {loggedIn && (
-        <BlogContextProvider>
-          <Routes>
-            <Route path="/:category" Component={Blogs} />
-            <Route path="/blog/:id" Component={BlogDetails} />
-            <Route path="/cart" Component={Cart} />
-          </Routes>
-        </BlogContextProvider>
+        <Routes>
+          <Route path="/:category" Component={Blogs} />
+          <Route path="/blog/:id" Component={BlogDetails} />
+          <Route path="/cart" Component={Cart} />
+        </Routes>
       )}
     </main>
   );
