@@ -1,5 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { computeBilling, handleQuantityChange } from "../../utils";
+import { useDispatch, useSelector } from "react-redux";
+import { handleCountChange } from "../../Redux/Reducers/Cart.reducer";
 
 const INITIAL_STATE = {
   cart: [
@@ -91,7 +93,9 @@ function cartReducer(state, action) {
 
 export default function Cart() {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
-  const { cart, platformCharges, total, grandTotal } = state;
+  const { platformCharges, total, grandTotal } = state;
+  const { items = [] } = useSelector((state) => state.cart);
+  const dispatcher = useDispatch();
 
   useEffect(() => {
     dispatch({ type: "billing" });
@@ -102,9 +106,9 @@ export default function Cart() {
       <div className="row">
         <div className="col-9">
           <div className="row">
-            <h1 className="mb-3">Cart ({cart.length})</h1>
+            <h1 className="mb-3">Cart ({items.length})</h1>
             <div className="col-12">
-              {cart.map((item, index) => (
+              {items.map((item, index) => (
                 <div key={`${item.productName}-${index}`} className="card mb-3">
                   <div className="card-body">
                     <div className="row">
@@ -116,10 +120,12 @@ export default function Cart() {
                         <div className="d-flex align-items-center justify-content-start">
                           <button
                             onClick={() =>
-                              dispatch({
-                                type: "dec",
-                                payload: { id: item.id },
-                              })
+                              dispatcher(
+                                handleCountChange({
+                                  type: "dec",
+                                  id: item.id,
+                                })
+                              )
                             }
                             className="btn btn-outline-primary"
                             type="button"
@@ -129,10 +135,12 @@ export default function Cart() {
                           <span className="mx-2">{item.quantity}</span>
                           <button
                             onClick={() =>
-                              dispatch({
-                                type: "inc",
-                                payload: { id: item.id },
-                              })
+                              dispatcher(
+                                handleCountChange({
+                                  type: "inc",
+                                  id: item.id,
+                                })
+                              )
                             }
                             className="btn btn-primary"
                             type="button"

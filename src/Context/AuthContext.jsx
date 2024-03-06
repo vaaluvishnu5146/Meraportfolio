@@ -8,7 +8,7 @@ export const AuthContext = createContext({
 });
 
 export default function AuthContextProvider({ children }) {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <AuthContext.Provider

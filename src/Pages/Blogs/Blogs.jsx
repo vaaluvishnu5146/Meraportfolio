@@ -1,16 +1,15 @@
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Billboard from "../../Components/Billboard/Billboard";
 import BlogCard from "../../Components/BlogCard/BlogCard";
-import { BlogContext } from "../../Context/BlogContext";
+import { useSelector } from "react-redux";
 
 export default function Blogs() {
   const { category } = useParams();
-  const { blogs = [] } = useContext(BlogContext);
+  const { data = [] } = useSelector((state) => state.courses);
   const filteredBlogs =
     category === "all"
-      ? blogs
-      : blogs.filter((blog) => blog.tags.includes(category));
+      ? data
+      : data.filter((blog) => blog.tags.includes(category));
 
   return (
     <div className="container">
@@ -21,7 +20,7 @@ export default function Blogs() {
           <div className="row" style={{ rowGap: 20 }}>
             {filteredBlogs.map((blog, index) => (
               <div key={`${blog.name}-${index}`} className="col-md-3">
-                <BlogCard blog={blog} />
+                <BlogCard product={blog} />
               </div>
             ))}
           </div>

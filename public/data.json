@@ -5,9 +5,11 @@
       "tags": ["fe"],
       "name": "HTML",
       "image": "https://res.cloudinary.com/ddjjx7t57/image/upload/v1709014137/HTML5_logo_wxffhq.png",
-      "details": "What is HTML? HTML stands for Hyper Text Markup Language. HTML is the standard markup language for creating Web pages. HTML describes the structure of a Web page."
+      "details": "What is HTML? HTML stands for Hyper Text Markup Language. HTML is the standard markup language for creating Web pages. HTML describes the structure of a Web page.",
+      "price": 499
     },
     {
+      "price": 499,
       "id": 2,
       "tags": ["fe"],
       "name": "CSS",
@@ -15,6 +17,7 @@
       "details": "CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language for laying out and structuring web pages (HTML or XML).using fro webs and adding more styles"
     },
     {
+      "price": 499,
       "id": 3,
       "tags": ["fe"],
       "name": "JAVASCRIPT",
@@ -22,6 +25,7 @@
       "details": "JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else."
     },
     {
+      "price": 499,
       "id": 4,
       "tags": ["fe"],
       "name": "BOOSTRAP",
@@ -29,6 +33,7 @@
       "details": "Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites, Bootstrap provides a collection of syntax for template designs."
     },
     {
+      "price": 499,
       "id": 5,
       "tags": ["fsd", "fe"],
       "name": "REACT",
@@ -36,6 +41,7 @@
       "details": "React is a declarative, component-based, open-source front-end JavaScript library for building user interfaces. Whew! There's a lot to unpack there, so let's go through each piece of that definition. it is realy helpful"
     },
     {
+      "price": 499,
       "id": 6,
       "tags": ["be", "fsd", "db"],
       "name": "MYSQL",
@@ -43,6 +49,7 @@
       "details": "MySQL is a relational database management system    A relational database stores data in separate tables rather than putting all the data in one big storeroom. The database structure is organized into physical files optimized for speed."
     },
     {
+      "price": 499,
       "id": 7,
       "tags": ["fsd", "be"],
       "name": "NODEJS",
@@ -50,6 +57,7 @@
       "details": "Node. js (Node) is an Open Source, cross-platform runtime environment for executing JavaScript code. Node is used extensively for server-side programming, making it possible for developers to use JavaScript for client-side and server-side code without needing to learn an additional language."
     },
     {
+      "price": 499,
       "id": 8,
       "tags": ["fsd", "be", "db"],
       "name": "MONGODB",
