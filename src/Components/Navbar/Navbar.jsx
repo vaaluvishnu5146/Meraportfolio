@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const navigator = useNavigate();
   const { loggedIn } = useContext(AuthContext);
+  const { items = [] } = useSelector((state) => state.cart);
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container-fluid">
@@ -74,7 +76,7 @@ export default function Navbar() {
                       }
                       aria-current="page"
                     >
-                      Cart
+                      Cart ({items.length})
                     </NavLink>
                   </li>
                 </ul>

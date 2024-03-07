@@ -5,11 +5,22 @@ import { useSelector } from "react-redux";
 
 export default function Blogs() {
   const { category } = useParams();
-  const { data = [] } = useSelector((state) => state.courses);
+  const { courses = [], cart = {} } = useSelector((state) => state);
+  const { data = [] } = courses;
+  const { items = [] } = cart;
   const filteredBlogs =
     category === "all"
       ? data
       : data.filter((blog) => blog.tags.includes(category));
+
+  function findIsDisabled(data = {}) {
+    const cartCopy = [...items];
+    if (cartCopy.find((c) => c.id === data.id)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div className="container">
@@ -20,7 +31,7 @@ export default function Blogs() {
           <div className="row" style={{ rowGap: 20 }}>
             {filteredBlogs.map((blog, index) => (
               <div key={`${blog.name}-${index}`} className="col-md-3">
-                <BlogCard product={blog} />
+                <BlogCard product={blog} disabled={findIsDisabled(blog)} />
               </div>
             ))}
           </div>

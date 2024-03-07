@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../../Redux/Reducers/Cart.reducer";
 import { useDispatch } from "react-redux";
 
-export default function BlogCard({ product = {} }) {
+export default function BlogCard({ product = {}, disabled = false }) {
   const dispatcher = useDispatch();
   return (
     <div className="card product-card">
@@ -15,8 +15,9 @@ export default function BlogCard({ product = {} }) {
         <button
           className="btn btn-primary"
           onClick={() => dispatcher(addToCart(product))}
+          disabled={disabled}
         >
-          Add to cart
+          {disabled ? "Added To Cart" : "Add to cart"}
         </button>
       </div>
     </div>

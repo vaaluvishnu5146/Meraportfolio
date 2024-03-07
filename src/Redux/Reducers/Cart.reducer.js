@@ -1,9 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { computeBilling } from "../../utils";
+
+function computeCartPricing(state = {}) {
+  const { total, grandTotal } = computeBilling(
+    state.items,
+    state.coupon,
+    state.platformCharges
+  );
+  return {
+    ...state,
+    total,
+    grandTotal,
+  };
+}
 
 const CartReducer = createSlice({
   name: "Cart",
   initialState: {
     items: [],
+    coupon: {
+      name: "COUPA50",
+      value: 50,
+      type: "%",
+    },
+    total: 0,
+    grandTotal: 0,
+    platformCharges: 10,
   },
   reducers: {
     // Action creators goes inside
@@ -26,8 +48,15 @@ const CartReducer = createSlice({
         }
       }
     },
+    handleCartValueComputation: (state) => {
+      return {
+        ...state,
+        ...computeCartPricing(state),
+      };
+    },
   },
 });
 
-export const { addToCart, handleCountChange } = CartReducer.actions;
+export const { addToCart, handleCountChange, handleCartValueComputation } =
+  CartReducer.actions;
 export default CartReducer.reducer;

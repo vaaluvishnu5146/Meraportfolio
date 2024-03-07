@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Login from "./Pages/Login/Login";
@@ -16,7 +16,7 @@ export default function App() {
   const { loggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5174/data.json")
+    fetch("http://localhost:5173/data.json")
       .then((response) => response.json())
       .then((result) => {
         dispatcher(saveCourses(result.products));
